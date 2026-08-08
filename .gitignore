@@ -1,0 +1,22 @@
+# Entornos virtuales y dependencias
+venv/
+node_modules/
+
+# Variables de entorno (secretos)
+.env
+
+# Cache y build
+__pycache__/
+*.py[cod]
+dist/
+*.tsbuildinfo
+.pytest_cache/
+
+# Editor / SO
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
