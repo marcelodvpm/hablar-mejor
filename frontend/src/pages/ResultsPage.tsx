@@ -1,14 +1,14 @@
-import type { AnalysisReport, Exercise } from '../types'
+import type { Activity, AnalysisReport } from '../types'
 import MetricCard from '../components/MetricCard'
 import TranscriptView from '../components/TranscriptView'
 import FeedbackPanel from '../components/FeedbackPanel'
 
 export default function ResultsPage({
   report,
-  exercise,
+  activity,
 }: {
   report: AnalysisReport
-  exercise: Exercise | null
+  activity: Activity | null
 }) {
   const { metrics, feedback } = report
 
@@ -23,10 +23,10 @@ export default function ResultsPage({
 
   return (
     <div>
-      {exercise && (
+      {activity && (
         <div className="card" style={{ textAlign: 'center' }}>
-          <span className="ex-cat">Ejercicio practicado</span>
-          <div className="ex-title" style={{ fontSize: 20, marginTop: 4 }}>{exercise.title}</div>
+          <span className="ex-cat">Actividad practicada</span>
+          <div className="ex-title" style={{ fontSize: 20, marginTop: 4 }}>{activity.title}</div>
         </div>
       )}
       <div className="card">

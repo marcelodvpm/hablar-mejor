@@ -1,15 +1,15 @@
 import { useRef, useState } from 'react'
-import type { AnalysisReport, Exercise } from '../types'
+import type { Activity, AnalysisReport } from '../types'
 import { analyzeAudio } from '../api/client'
 import { Recorder } from '../lib/recorder'
 
 interface Props {
-  exercise: Exercise | null
+  activity: Activity | null
   onAnalyzed: (r: AnalysisReport) => void
   onBack: () => void
 }
 
-export default function RecorderPage({ exercise, onAnalyzed, onBack }: Props) {
+export default function RecorderPage({ activity, onAnalyzed, onBack }: Props) {
   const [recording, setRecording] = useState(false)
   const [analyzing, setAnalyzing] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -58,14 +58,16 @@ export default function RecorderPage({ exercise, onAnalyzed, onBack }: Props) {
 
   return (
     <div>
-      {exercise && (
+      {activity && (
         <div className="card exercise-card">
           <h2 style={{ color: 'var(--text)', textTransform: 'none', letterSpacing: 0, fontSize: 18, margin: 0 }}>
-            {exercise.title}
+            {activity.title}
           </h2>
-          <p style={{ margin: '8px 0' }}>{exercise.prompt}</p>
+          {activity.subtitle && <p className="ex-cat" style={{ marginTop: 4 }}>{activity.subtitle}</p>}
+          {activity.sample && <p className="ex-sample">“{activity.sample}”</p>}
+          <p style={{ margin: '8px 0' }}>{activity.prompt}</p>
           <ul className="ex-structure">
-            {exercise.structure.map((s, i) => (
+            {activity.structure.map((s, i) => (
               <li key={i}>{s}</li>
             ))}
           </ul>
@@ -75,8 +77,8 @@ export default function RecorderPage({ exercise, onAnalyzed, onBack }: Props) {
       <div className="card recorder">
         <h2>Grabación de práctica</h2>
         <p style={{ color: 'var(--muted)', marginTop: 8 }}>
-          {exercise
-            ? 'Grabá tu respuesta siguiendo la estructura del ejercicio.'
+          {activity
+            ? 'Grabá tu respuesta siguiendo la estructura y el estilo del ejercicio.'
             : 'Grabá entre 30 segundos y 3 minutos hablando. Podés leer un texto, preparar una exposición o simplemente contar algo.'}
         </p>
 

@@ -73,3 +73,25 @@ export interface Exercise {
   tips: string[]
   minutes: number
 }
+
+export interface Persona {
+  id: string
+  name: string
+  category: string
+  style: string
+  sample_text: string
+  challenge: string
+  structure: string[]
+  tips: string[]
+  minutes: number
+}
+
+export interface Activity {
+  title: string
+  subtitle?: string
+  prompt: string
+  sample?: string
+  structure: string[]
+  tips: string[]
+  minutes: number
+}

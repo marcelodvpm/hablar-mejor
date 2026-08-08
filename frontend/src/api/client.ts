@@ -1,5 +1,5 @@
 import axios from 'axios'
-import type { AnalysisReport, Exercise } from '../types'
+import type { AnalysisReport, Exercise, Persona } from '../types'
 
 export async function analyzeAudio(file: Blob, language: string): Promise<AnalysisReport> {
   const form = new FormData()
@@ -22,5 +22,10 @@ export async function getDailyExercise(language: string): Promise<Exercise> {
   const { data } = await axios.get<Exercise>('/api/exercises/daily', {
     params: { language },
   })
+  return data
+}
+
+export async function getPersonas(): Promise<Persona[]> {
+  const { data } = await axios.get<Persona[]>('/api/personas')
   return data
 }

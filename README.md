@@ -4,6 +4,8 @@ Entrenador de oratoria **100% local**: grabás un audio, te transcribe con Whisp
 
 Incluye un **catálogo de ejercicios** de práctica organizados por nivel (principiante / intermedio / avanzado) y por situación real: presentarte, hablar con tu jefe, entrevistas laborales, convencer a un cliente, resolver conflictos, hablar con tu pareja o tus hijos, y más. Cada día hay un **ejercicio del día** rotativo.
 
+También incluye **"Imitar oradores"**: un catálogo de oradores destacados para practicar su estilo. Elegís un orador, leés la descripción de su estilo y su texto modelo de práctica (original, no una cita del orador), y grabás tu propia versión imitando su ritmo, vocabulario y recursos retóricos.
+
 **Nada sale de tu PC**: la transcripción y el análisis corren en tu máquina, sin nube, sin claves ni cuentas. Los audios nunca se suben a ningún servidor externo.
 
 ---
@@ -30,7 +32,7 @@ La primera vez puede tardar varios minutos: descarga las imágenes, instala depe
 | API (backend) | http://localhost:8001 |
 
 1. Abrí http://localhost:8080
-2. Elegí un ejercicio del catálogo o el ejercicio del día y presioná **Practicar**
+2. En **Ejercicios**: elegí un ejercicio del catálogo o el ejercicio del día y presioná **Practicar**. En **Imitar oradores**: elegí un orador y presioná **Imitar**
 3. Grabá tu respuesta (entre 30 segundos y 3 minutos) y presioná **Detener y analizar**
 4. Revisá el reporte: puntuación, métricas, transcripción con muletillas resaltadas y sugerencias
 
@@ -85,3 +87,4 @@ docker compose down
 | `POST` | `/api/analyze` | Analiza un audio WAV (`file` + `language`) |
 | `GET` | `/api/exercises` | Catálogo de ejercicios (`?language=&level=`) |
 | `GET` | `/api/exercises/daily` | Ejercicio del día (`?language=`) |
+| `GET` | `/api/personas` | Catálogo de oradores para imitar |
